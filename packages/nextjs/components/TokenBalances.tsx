@@ -36,8 +36,8 @@ const TokenBalances: React.FC<{ address: string }> = ({ address }) => {
 
   return (
     <div>
-      <p><span className="font-bold">Vault:</span> { testVault?.address? testVault?.address : ''}</p>
-      <p><span className="font-bold">Asset:</span> { testToken?.address? testToken?.address : ''}</p>
+      <p><span className="font-bold">Vault:</span> <a target="_blank"  href={`http://localhost:3000/blockexplorer/address/${testVault?.address? testVault?.address : ''}`}>{ testVault?.address? testVault?.address : ''}</a></p>
+      <p><span className="font-bold">Asset:</span> <a target="_blank"  href={`http://localhost:3000/blockexplorer/address/${testToken?.address? testToken?.address : ''}`}>{ testToken?.address? testToken?.address : ''}</a></p>
       <p><span className="font-bold">MinDepositAmount:</span> {minDepositAmount ? formatBalance(minDepositAmount) : '0'}</p>
       <p><span className="font-bold">MaxTotalAmount:</span> {maxTotalAmount ? formatBalance(maxTotalAmount) : '0'}</p>
       <p><span className="font-bold">Shares Balance:</span> {vaultBalance ? formatBalance(vaultBalance) : '0'}</p>

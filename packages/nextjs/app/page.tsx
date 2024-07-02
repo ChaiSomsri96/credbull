@@ -19,15 +19,19 @@ const Home: NextPage = () => {
       <div className="flex items-center flex-col flex-grow pt-10">
         <div className="px-5">
           <TokenBalances address={connectedAddress} />
+          
           <div className="flex items-center mt-4">
             <div className="flex-grow"></div>
             <Faucet />
           </div>
+          
+          
           <AddYield contractName="TestVault" />
           <ActionButton type="Deposit" contractName="TestVault" placeholder="Enter assets" />
           <ActionButton type="Mint" contractName="TestVault" placeholder="Enter shares" />
           <ActionButton type="Withdraw" contractName="TestVault" placeholder="Enter assets" />
           <ActionButton type="Redeem" contractName="TestVault" placeholder="Enter shares" />
+          
 
         </div>
 

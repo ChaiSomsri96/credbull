@@ -6,6 +6,7 @@ import "../contracts/TestToken.sol";
 import "../contracts/TestVault.sol";
 
 import "./DeployHelpers.s.sol";
+import "./WhitelistHelper.sol";
 
 contract DeployScript is ScaffoldETHDeploy {
     error InvalidPrivateKey(string);
@@ -50,12 +51,9 @@ contract DeployScript is ScaffoldETHDeploy {
         );
 
         //Add wallets to whitelist
-        address[] memory walletsToWhitelist = new address[](5);
-        walletsToWhitelist[0] = 0x833Ac83f32785818247897c1c50d4bE927efbEB1;
-        walletsToWhitelist[1] = 0x6d6073446EfE7d946167652Fa1F95cd2801A0530;
-        walletsToWhitelist[2] = 0x3D40c4B21db362C3580e6A1F6f84a50663266F64;
-        walletsToWhitelist[3] = 0x8eeB0661e151933Ad8caC8A0691d7DC72B7De5D2;
-        walletsToWhitelist[4] = 0x47CE5ad8013F7B4F89f76652D0CAD067C6F9c1F2;
+        WhitelistHelper whitelistHelper = new WhitelistHelper();
+
+        address[] memory walletsToWhitelist = whitelistHelper.getWhitelistAddresses("./data/whitelist.json");
 
         for (uint i = 0; i < walletsToWhitelist.length; i++) {
             testVault.addWhitelisted(walletsToWhitelist[i]);
